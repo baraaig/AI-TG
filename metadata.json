@@ -1,0 +1,5 @@
+{
+  "name": "AI Timetable Generator",
+  "description": "An interactive web application for generating and managing academic timetables using AI. It helps in scheduling courses, instructors, and rooms while preventing conflicts and respecting constraints.",
+  "requestFramePermissions": []
+}
