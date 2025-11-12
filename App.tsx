@@ -2,6 +2,8 @@
 
 
 
+
+
 import React, { useState, useCallback, useMemo, FC } from 'react';
 import { Course, Instructor, Room, ScheduleEntry } from './types';
 import { DAYS_OF_WEEK } from './constants';
@@ -335,9 +337,9 @@ const App: React.FC = () => {
         document.body.removeChild(link);
     };
 
-    // Fix: Replaced `Array.from` with the spread syntax to correctly infer the array type.
-    // `Array.from(new Set(...))` was inferred as `unknown[]`, causing a type error.
-    // The spread syntax ensures `levels` is correctly typed as `number[]`.
+    // FIX: Using the spread syntax `...` instead of `Array.from` ensures that TypeScript
+    // correctly infers the type of `levels` as `number[]`. This resolves the type error
+    // that occurred in the `.sort()` method because `Array.from` was producing `unknown[]`.
     const levels: number[] = [...new Set(courses.map(c => c.level))].sort((a,b) => a - b);
     
     const INSTRUCTOR_COLORS = useMemo(() => [
